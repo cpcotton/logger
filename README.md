@@ -21,7 +21,7 @@ This is no replacement for the sophisticated many optioned Python debugger and l
 
 Add to the current directory of your Python a file called logger.py with the code.
 
-In your code as below import a file caller logger.py containing the class _logger_, a set of funtions to make lazy logging.
+In your code as below import the file called logger.py containing the class _logger_, and make lazy logging.
 
 ~~~
 import Logger as l
@@ -45,7 +45,6 @@ z: Type: int Value: 22
 ~~~
 config = {"key1": "value1", "key2": "value2"}
 l.config
-var_name: Type: str Value: 'Hello, Logger!'
 #  RESULT ON SCREEN
 config: Type: dict Value: {
   "key1": "value1",
@@ -68,14 +67,14 @@ l.print(1)  # Turn on console output
 l.save(1)   # Turn on file output
 
 # More detailed setup
-Replace the l = Logger() WITH
+Replace the l = Logger() with the following code.  It is now documenting the function and options.
 ~~~
 l = Logger(log_to_file=True, log_file_name="app.log", print_to_console=True)
 ~~~
 I like to use 0 and 1 for false and true
 
-## Notes
-It overwrites the last log file, so everytime you run the py app it will get a clean file. To append the log..
+## Notes (Append Log File Option)
+It overwrites the last log file, so everytime you run you Python app it will get a clean file. To append the log instead ..
 ~~~
 # Clear the log file at the start of the run
         if self.log_to_file:
@@ -83,6 +82,13 @@ It overwrites the last log file, so everytime you run the py app it will get a c
                 file.write(f"--- Logging started at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')} ---\n")
 ~~~
 
+By using the ON/OFF feature of logging and the APPEND funtion described all instances and values in one place in the code / AND / OR / MAYBE others can be monitored.
+
+~~~
+l.save(1)   # Turn on file output
+l.my_important_variable # MONITOR ONLY THIS VARIABLE
+l.save(0)   # Turn off file output
+~~~
 
 Cool bananas - I'm possibly contactable for any miss-fit reason.
 Likely to grow legs this is a good start, and I will update this with my use comments in time.
