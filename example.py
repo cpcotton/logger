@@ -9,6 +9,10 @@ config = {"key1": "value1", "key2": "value2"}
 
 z =22
 l.z #    < = Now on your console the type and value of z is shown, and put with more detail in the app.log file
+l.p("Your comment")
+# Log: c:\users\cc\desktop\_pysites\main2.py:137
+# [2024-11-30 11:19:14]: *** Your comment***
+
 
 # just to show logging works within a function
 def says_hell0(t):
