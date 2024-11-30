@@ -25,7 +25,7 @@ Add to the current directory of your Python a file called logger.py with the cod
 In your code as below import the file called logger.py containing the class _logger_, and make lazy logging.
 
 ~~~
-import Logger as l
+from logger import Logger
 l = Logger()
 ~~~
 
@@ -92,9 +92,18 @@ l.save(0)   # Turn off file output
 ~~~
 ## Print text feature
 ~~~
-@ replace the
 print("another positional message with")
 l.p("any message") 
+~~~
+
+## Decerator Feature Option
+~~~
+from logger import log
+@log
+def add(a, b):
+     return a + b
+add returned 8
+#  becomes Calling add with arguments (3, 5) and {}
 ~~~
 
 Cool bananas - I'm possibly contactable for any miss-fit reason.
