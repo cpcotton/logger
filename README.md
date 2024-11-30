@@ -3,10 +3,11 @@
 I'm a master of forever programming the same code so I need an easy way to review.
 This is a Python model of a system I used before in other code projects.
 
-Basiaclly it replaces the console logging using the print(variable) with l.variable
+Basiaclly it replaces the console logging using the print(variable) with l.variable.
+This fixed a disagvantage of the print() funtion by thelling you the app name (including imported) and line number.
 
 You do not need to remove the l.variable if you do not want debugging, it just is switched on and off elsewhere.
-This is no replacement for the sophisticated many optioned Python debugger and logging options, howere it is simple to use and easy to control.
+This is no replacement for the sophisticated many optioned Python debugger and logging options available on GitHub etc, however l.var_name is simple to use and easy to control and back-track.
 
 ## Features
 - Simple to use, less typing
@@ -89,10 +90,16 @@ l.save(1)   # Turn on file output
 l.my_important_variable # MONITOR ONLY THIS VARIABLE
 l.save(0)   # Turn off file output
 ~~~
+## Print text feature
+~~~
+@ replace the
+print("another positional message with")
+l.p("any message") 
+~~~
 
 Cool bananas - I'm possibly contactable for any miss-fit reason.
 Likely to grow legs this is a good start, and I will update this with my use comments in time.
-It currently passes the whole var when confronted with l.fruits('name'), that is it will show all the 'name' dictionary.
+It currently passes the whole var when confronted with l.fruits('name'), that is it will show all the fruits dictionary.
 Happy hacking.
 
 
