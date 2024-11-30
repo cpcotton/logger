@@ -2,6 +2,15 @@ import json
 import inspect
 from datetime import datetime
 
+# Logging Decorator:
+def log(func):
+    def wrapper(*args, **kwargs):
+        print(f"Calling {func.__name__} with arguments {args} and {kwargs}")
+        result = func(*args, **kwargs)
+        print(f"{func.__name__} returned {result}")
+        return result
+    return wrapper
+
 class Logger:
     def __init__(self, log_to_file=True, log_file_name="app.log", print_to_console=True):
         """Initialize the logger with optional file and console logging."""
@@ -21,6 +30,25 @@ class Logger:
     def save(self, flag):
         """Enable or disable file logging."""
         self.log_to_file = bool(flag)
+    
+    def p(self,message):
+        """Write the log message to the console and/or the log file."""
+        # Get the source file and line number
+        frame = inspect.currentframe().f_back
+        file_name = inspect.getfile(frame)
+        line_number = frame.f_lineno
+
+        timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        log_line = (f"{file_name}:{line_number}\n[{timestamp}]: *** {message}***")
+        
+        if self.print_to_console:
+            print(f"Log: {log_line}\n")
+
+        # Log to file if enabled and not a console-only message
+        if self.log_to_file:
+            with open(self.log_file_name, 'a') as file:
+                file.write(f"{log_line}\n")
+        
 
     def log(self, message, console_only=False):
         """Write the log message to the console and/or the log file."""
